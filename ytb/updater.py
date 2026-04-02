@@ -71,10 +71,10 @@ class YtDlpUpdater:
 
             # Normal pip upgrade
             result = subprocess.run(
-                [sys.executable, "-m", "pip", "install", "--upgrade", "yt-dlp"],
+                [sys.executable, "-m", "pip", "install", "--upgrade", "yt-dlp[default]"],
                 capture_output=True,
                 text=True,
-                timeout=60
+                timeout=120
             )
 
             if result.returncode == 0:

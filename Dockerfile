@@ -98,6 +98,7 @@ RUN apt-get update && \
         libva2 \
         libx264-164 \
         libx265-199 \
+        nodejs \
         python3 \
         python3-pip \
         python3-venv \
