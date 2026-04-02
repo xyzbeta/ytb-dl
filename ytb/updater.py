@@ -69,22 +69,13 @@ class YtDlpUpdater:
             # Check if running in Docker
             is_docker = os.path.exists("/app")
 
-            if is_docker:
-                # In Docker, try with --user flag for user-level installation
-                result = subprocess.run(
-                    [sys.executable, "-m", "pip", "install", "--upgrade", "--user", "yt-dlp"],
-                    capture_output=True,
-                    text=True,
-                    timeout=60
-                )
-            else:
-                # Normal pip upgrade
-                result = subprocess.run(
-                    [sys.executable, "-m", "pip", "install", "--upgrade", "yt-dlp"],
-                    capture_output=True,
-                    text=True,
-                    timeout=60
-                )
+            # Normal pip upgrade
+            result = subprocess.run(
+                [sys.executable, "-m", "pip", "install", "--upgrade", "yt-dlp"],
+                capture_output=True,
+                text=True,
+                timeout=60
+            )
 
             if result.returncode == 0:
                 # Reload the module to get the new version
